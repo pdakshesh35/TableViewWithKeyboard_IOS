@@ -10,10 +10,17 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
 
+    @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var chatView: UIView!
     @IBOutlet weak var lbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        chatView.layer.masksToBounds = true;
+        chatView.layer.cornerRadius = 10;
+        
+        img.layer.masksToBounds = true;
+        img.layer.cornerRadius = img.frame.size.height/2;
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -40,6 +40,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //make the table view cells self sizing depends on content - by setting label -> lines 0
         tbl.rowHeight = UITableViewAutomaticDimension
         tbl.estimatedRowHeight = 140
+        tbl.separatorColor = UIColor.clear;
         
        // self.watchForKeyboard()
        
