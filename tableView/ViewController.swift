@@ -52,7 +52,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return true
     }
     
-    
+    //
     /**
      * Called when the user click on the view (outside the UITextField).
      */
