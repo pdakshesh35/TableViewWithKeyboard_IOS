@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
+class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
     public var names: [String] = [];
     @IBOutlet weak var tbl: UITableView!
     @IBOutlet weak var chat: UITextField!
@@ -20,7 +20,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var keyBoardHeight : Bool = false;
     
-    
     @IBAction func send(_ sender: Any) {
         
         let nameToSave = chat.text;
@@ -29,7 +28,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tbl.reloadData()
         self.tbl.scrollToRow(at: self.tbl.lastIndexPath!, at: .bottom, animated: false);
     }
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.chat.delegate = self ;
@@ -37,12 +36,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tbl.dataSource = self;
         
         
-        //make the table view cells self sizing depends on content - by setting label -> lines 0
-        tbl.rowHeight = UITableViewAutomaticDimension
-        tbl.estimatedRowHeight = 140
+        // self.watchForKeyboard()
         
-       // self.watchForKeyboard()
-       
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -72,83 +67,64 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tbl.dequeueReusableCell(withIdentifier: "cell") as? TableViewCell;
+        let cell = tbl.dequeueReusableCell(withIdentifier: "second") as? SecondViewCell;
         cell?.lbl.text = names[indexPath.row];
         return cell!;
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.chat = textField
-       
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-     func watchForKeyboard () {
+    func watchForKeyboard () {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown(notification:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil);
-       
-         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil);
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil);
     }
     
-     func keyboardWasShown(notification: NSNotification) {
+    func keyboardWasShown(notification: NSNotification) {
         if let dic = notification.userInfo {
             if let keyboardFrame = (dic[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue {
-               
                 
-                if(self.names.count < 3){
-                self.tbl.frame.size = CGSize(width: UIScreen.main.bounds.width, height: self.view.frame.height - keyboardFrame.height)
-                self.tbl.frame.origin.y = keyboardFrame.height-65
-                }
-                 self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardFrame.height, 0)
-
-                self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, keyboardFrame.height, 0)
-             
-    
-                self.scrollView.contentOffset = CGPoint(x:self.scrollView.contentOffset.x, y:0 + keyboardFrame.height)
+                //  containerBtmConstrain.constant = keyboardFrame.height
+                self.tbl.scrollsToTop = true;
+                
+                self.tbl.contentInset = UIEdgeInsetsMake(0, 0, keyboardFrame.height, 0)
+                
+                self.tbl.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, keyboardFrame.height, 0)
+                
+                
+                self.tbl.contentOffset = CGPoint(x:0, y:0 + keyboardFrame.height)
+                self.chatview.frame.origin.y = 1.0
                 
             }
         }
+        // self.view.layoutIfNeeded()
         
         
     }
-
+    func appBecomeActive() {
+        //reload your Tableview here
+        self.tbl.reloadData()
+    }
     
     
-     func keyboardWillHide(notification: NSNotification) {
+    
+    func keyboardWillHide(notification: NSNotification) {
         UIView.animate(withDuration: 0, animations: { () -> Void in
-           self.tbl.frame.size = CGSize(width: UIScreen.main.bounds.width, height: self.view.frame.height - 65)
             
-             self.tbl.frame.origin.y = 0
-             self.tbl.contentInset = UIEdgeInsetsMake(0,0,0,0);
-            self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            self.tbl.contentInset = UIEdgeInsetsMake(0,0,0,0);
+            self.tbl.scrollIndicatorInsets = UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0)
             self.view.layoutIfNeeded()
         })
     }
+    
+}
 
-}
-extension UITableView {
-    
-    var lastIndexPath: IndexPath? {
-        
-        let lastSectionIndex = numberOfSections - 1
-        guard lastSectionIndex >= 0 else { return nil }
-        
-        let lastIndexInLastSection = numberOfRows(inSection: lastSectionIndex) - 1
-        guard lastIndexInLastSection >= 0 else { return nil }
-        
-        return IndexPath(row: lastIndexInLastSection, section: lastSectionIndex)
-    }
-  
-    
-    
-}
-extension UIScrollView {
-    func scrollToTop() {
-        let desiredOffset = CGPoint(x: 0, y: -contentInset.top)
-        setContentOffset(desiredOffset, animated: true)
-    }
-}
 private var xoAssociationKeyForBottomConstrainInVC: UInt8 = 0
 private var table: UInt8 = 1
 private var arry : UInt = 2

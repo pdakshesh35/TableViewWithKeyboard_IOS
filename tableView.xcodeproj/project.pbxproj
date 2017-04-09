@@ -15,6 +15,10 @@
 		B150BC651E99755D005F7765 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B150BC631E99755D005F7765 /* LaunchScreen.storyboard */; };
 		B150BC701E99755D005F7765 /* tableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B150BC6F1E99755D005F7765 /* tableViewTests.swift */; };
 		B150BC7B1E99755D005F7765 /* tableViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B150BC7A1E99755D005F7765 /* tableViewUITests.swift */; };
+		B150BC8B1E9976D2005F7765 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B150BC8A1E9976D2005F7765 /* TableViewCell.swift */; };
+		B150BC8D1E9978D2005F7765 /* extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B150BC8C1E9978D2005F7765 /* extra.swift */; };
+		B150BC8F1E9A0963005F7765 /* SecondViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B150BC8E1E9A0963005F7765 /* SecondViewCell.swift */; };
+		B150BC911E9A0973005F7765 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B150BC901E9A0973005F7765 /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		B150BC761E99755D005F7765 /* tableViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tableViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B150BC7A1E99755D005F7765 /* tableViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewUITests.swift; sourceTree = "<group>"; };
 		B150BC7C1E99755D005F7765 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B150BC8A1E9976D2005F7765 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		B150BC8C1E9978D2005F7765 /* extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extra.swift; sourceTree = "<group>"; };
+		B150BC8E1E9A0963005F7765 /* SecondViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewCell.swift; sourceTree = "<group>"; };
+		B150BC901E9A0973005F7765 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,10 @@
 			children = (
 				B150BC571E99755D005F7765 /* AppDelegate.swift */,
 				B150BC591E99755D005F7765 /* ViewController.swift */,
+				B150BC8E1E9A0963005F7765 /* SecondViewCell.swift */,
+				B150BC901E9A0973005F7765 /* SecondViewController.swift */,
+				B150BC8A1E9976D2005F7765 /* TableViewCell.swift */,
+				B150BC8C1E9978D2005F7765 /* extra.swift */,
 				B150BC5B1E99755D005F7765 /* Main.storyboard */,
 				B150BC611E99755D005F7765 /* Assets.xcassets */,
 				B150BC631E99755D005F7765 /* LaunchScreen.storyboard */,
@@ -262,7 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B150BC8B1E9976D2005F7765 /* TableViewCell.swift in Sources */,
+				B150BC8D1E9978D2005F7765 /* extra.swift in Sources */,
+				B150BC8F1E9A0963005F7765 /* SecondViewCell.swift in Sources */,
 				B150BC5A1E99755D005F7765 /* ViewController.swift in Sources */,
+				B150BC911E9A0973005F7765 /* SecondViewController.swift in Sources */,
 				B150BC581E99755D005F7765 /* AppDelegate.swift in Sources */,
 				B150BC601E99755D005F7765 /* tableView.xcdatamodeld in Sources */,
 			);
