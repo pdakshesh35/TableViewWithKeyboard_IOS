@@ -24,23 +24,26 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Xo-V6-ALZ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.85235917189228605" green="1" blue="0.62388239391848987" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfP-Tj-MYc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="dH7-hc-sbG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfP-Tj-MYc">
+                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIo-qz-dNv">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="567"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="149" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TyN-vg-rZ2">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="601"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="501"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="149" id="mqy-Wl-E6y" customClass="TableViewCell" customModule="tableView" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="375" height="149"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mqy-Wl-E6y" id="xlk-cs-enh">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="148.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KQr-g3-mzT">
@@ -78,6 +81,7 @@
                                                                 <constraint firstItem="e4E-vd-ehg" firstAttribute="trailing" secondItem="xlk-cs-enh" secondAttribute="trailingMargin" id="zpH-eq-yvN"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
+                                                        <color key="backgroundColor" red="0.85235917189228605" green="1" blue="0.62388239391848987" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <connections>
                                                             <outlet property="chatView" destination="KQr-g3-mzT" id="Yyb-tk-wWQ"/>
                                                             <outlet property="img" destination="e4E-vd-ehg" id="C06-RV-76U"/>
@@ -87,7 +91,7 @@
                                                 </prototypes>
                                             </tableView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgX-kP-Q8m">
-                                                <rect key="frame" x="0.0" y="602" width="375" height="65"/>
+                                                <rect key="frame" x="0.0" y="502" width="375" height="65"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iR8-CG-aik">
                                                         <rect key="frame" x="8" y="17" width="271" height="30"/>
@@ -119,7 +123,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.85235917189228605" green="1" blue="0.62388239391848987" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="TyN-vg-rZ2" secondAttribute="trailing" id="32D-7a-Pf5"/>
                                             <constraint firstItem="KgX-kP-Q8m" firstAttribute="top" secondItem="TyN-vg-rZ2" secondAttribute="bottom" constant="1" id="TZy-hM-0zw"/>
@@ -140,21 +144,37 @@
                                     <constraint firstItem="bIo-qz-dNv" firstAttribute="centerY" secondItem="NfP-Tj-MYc" secondAttribute="centerY" id="ntq-FQ-Yw7"/>
                                 </constraints>
                             </scrollView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image3" translatesAutoresizingMaskIntoConstraints="NO" id="lmN-23-PQU">
+                                <rect key="frame" x="162" y="40" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Uge-oa-KYh"/>
+                                    <constraint firstAttribute="width" constant="50" id="aky-24-ncm"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NfP-Tj-MYc" firstAttribute="leading" secondItem="Rtc-28-FIM" secondAttribute="leading" id="5SB-uy-MbH"/>
                             <constraint firstItem="0Xo-V6-ALZ" firstAttribute="leading" secondItem="Rtc-28-FIM" secondAttribute="leading" id="B50-5f-LQz"/>
-                            <constraint firstItem="NfP-Tj-MYc" firstAttribute="top" secondItem="Rtc-28-FIM" secondAttribute="top" id="Mbu-XF-1Qc"/>
+                            <constraint firstItem="X3I-Aw-3aV" firstAttribute="top" secondItem="dH7-hc-sbG" secondAttribute="bottom" id="Ioy-44-baE"/>
+                            <constraint firstItem="lmN-23-PQU" firstAttribute="top" secondItem="DZG-zE-yoh" secondAttribute="bottom" constant="20" id="L4Q-yE-sWE"/>
+                            <constraint firstItem="NfP-Tj-MYc" firstAttribute="top" secondItem="Rtc-28-FIM" secondAttribute="top" constant="100" id="Mbu-XF-1Qc"/>
                             <constraint firstAttribute="trailing" secondItem="NfP-Tj-MYc" secondAttribute="trailing" id="N0h-vS-Fc4"/>
+                            <constraint firstItem="dH7-hc-sbG" firstAttribute="leading" secondItem="Rtc-28-FIM" secondAttribute="leading" id="Pqp-Yz-sCT"/>
+                            <constraint firstItem="dH7-hc-sbG" firstAttribute="top" secondItem="Rtc-28-FIM" secondAttribute="top" id="SID-l6-EgU"/>
+                            <constraint firstItem="lmN-23-PQU" firstAttribute="centerX" secondItem="Rtc-28-FIM" secondAttribute="centerX" id="h7a-3b-aZ1"/>
                             <constraint firstAttribute="trailing" secondItem="0Xo-V6-ALZ" secondAttribute="trailing" id="kQd-ka-yXY"/>
                             <constraint firstItem="0Xo-V6-ALZ" firstAttribute="top" secondItem="Rtc-28-FIM" secondAttribute="top" id="lPE-uo-ltQ"/>
                             <constraint firstItem="0Xo-V6-ALZ" firstAttribute="bottom" secondItem="X3I-Aw-3aV" secondAttribute="top" id="ms3-Gu-a9Q"/>
                             <constraint firstItem="X3I-Aw-3aV" firstAttribute="top" secondItem="NfP-Tj-MYc" secondAttribute="bottom" id="otx-AM-83u"/>
+                            <constraint firstAttribute="trailing" secondItem="dH7-hc-sbG" secondAttribute="trailing" id="snL-VL-ZKd"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="chat" destination="iR8-CG-aik" id="ajj-nW-g9N"/>
+                        <outlet property="chatview" destination="KgX-kP-Q8m" id="k2X-rw-Ruz"/>
+                        <outlet property="innerView" destination="bIo-qz-dNv" id="jEl-lW-hL4"/>
+                        <outlet property="profileImg" destination="lmN-23-PQU" id="kvF-aq-ape"/>
                         <outlet property="scrollView" destination="NfP-Tj-MYc" id="Urp-mo-wba"/>
                         <outlet property="tbl" destination="TyN-vg-rZ2" id="6Px-ye-CYZ"/>
                     </connections>
@@ -262,6 +282,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="360" height="640"/>
         <image name="image1" width="5456" height="3632"/>
+        <image name="image3" width="1536" height="2306"/>
     </resources>
 </document>

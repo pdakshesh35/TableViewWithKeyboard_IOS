@@ -18,8 +18,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var containerBtmConstrain: NSLayoutConstraint!
     @IBOutlet var scrollView: UIScrollView!
     
+    @IBOutlet weak var innerView: UIView!
     var keyBoardHeight : Bool = false;
     
+    @IBOutlet weak var profileImg: UIImageView!
     
     @IBAction func send(_ sender: Any) {
         
@@ -32,10 +34,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        profileImg.layer.masksToBounds = true
+        profileImg.layer.cornerRadius = profileImg.frame.size.height/2
         self.chat.delegate = self ;
         tbl.delegate = self;
         tbl.dataSource = self;
-        
+        tbl.backgroundColor = UIColor.clear;
         
         //make the table view cells self sizing depends on content - by setting label -> lines 0
         tbl.rowHeight = UITableViewAutomaticDimension
@@ -98,15 +103,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                
                 
                 if(self.names.count < 3){
-                self.tbl.frame.size = CGSize(width: UIScreen.main.bounds.width, height: self.view.frame.height - keyboardFrame.height)
-                self.tbl.frame.origin.y = keyboardFrame.height-65
+                   
+                  self.tbl.frame.size = CGSize(width: UIScreen.main.bounds.width, height: self.innerView.frame.height - keyboardFrame.height - chatview.frame.height)
+                    self.tbl.frame.origin.y = keyboardFrame.height
                 }
+                
+                
                  self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardFrame.height, 0)
 
                 self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, keyboardFrame.height, 0)
              
-    
+                var aRect : CGRect = self.innerView.frame
+                aRect.size.height -= keyboardFrame.height
                 self.scrollView.contentOffset = CGPoint(x:self.scrollView.contentOffset.x, y:0 + keyboardFrame.height)
+                if let actField = chat
+                {
+                    if (aRect.contains(chat.frame.origin))
+                    {
+                        scrollView.scrollRectToVisible(chatview.frame, animated: false)
+                    }
+                }
                 
             }
         }
@@ -118,7 +134,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
      func keyboardWillHide(notification: NSNotification) {
         UIView.animate(withDuration: 0, animations: { () -> Void in
-           self.tbl.frame.size = CGSize(width: UIScreen.main.bounds.width, height: self.view.frame.height - 65)
+           self.tbl.frame.size = CGSize(width: UIScreen.main.bounds.width, height: self.innerView.frame.height - self.chatview.frame.height)
             
              self.tbl.frame.origin.y = 0
              self.tbl.contentInset = UIEdgeInsetsMake(0,0,0,0);
