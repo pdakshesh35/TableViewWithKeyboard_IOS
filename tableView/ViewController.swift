@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var chat: UITextField!
     @IBOutlet weak var tblBottom: NSLayoutConstraint!
     
+    @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var chatview: UIView!
     @IBOutlet weak var containerBtmConstrain: NSLayoutConstraint!
     @IBOutlet var scrollView: UIScrollView!
@@ -41,11 +42,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tbl.delegate = self;
         tbl.dataSource = self;
         tbl.backgroundColor = UIColor.clear;
-        
+       
         //make the table view cells self sizing depends on content - by setting label -> lines 0
         tbl.rowHeight = UITableViewAutomaticDimension
         tbl.estimatedRowHeight = 140
         tbl.separatorColor = UIColor.clear;
+        
+        
+        let path = UIBezierPath(roundedRect: self.view.bounds, byRoundingCorners: [.topLeft,.topRight], cornerRadii: CGSize(width : 40, height : 40))
+        let shape = CAShapeLayer()
+            shape.path = path.cgPath
+        self.backImage.layer.mask = shape
+       
         
        // self.watchForKeyboard()
        

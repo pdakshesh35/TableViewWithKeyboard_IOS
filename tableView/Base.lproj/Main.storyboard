@@ -27,7 +27,7 @@
                                 <color key="backgroundColor" red="0.85235917189228605" green="1" blue="0.62388239391848987" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="dH7-hc-sbG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfP-Tj-MYc">
                                 <rect key="frame" x="0.0" y="100" width="375" height="567"/>
@@ -105,13 +105,15 @@
                                                             <constraint firstAttribute="width" constant="46" id="LGF-v6-SeD"/>
                                                             <constraint firstAttribute="height" constant="30" id="uJ4-9i-IL6"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button"/>
+                                                        <state key="normal" title="Send">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="send:" destination="fCB-Qj-l4u" eventType="touchUpInside" id="5cX-7q-wCT"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.85235917189999999" green="1" blue="0.6238823939" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="5aD-oG-Ra4" secondAttribute="trailing" constant="8" id="5XW-AR-pH2"/>
                                                     <constraint firstItem="iR8-CG-aik" firstAttribute="top" secondItem="KgX-kP-Q8m" secondAttribute="top" constant="17" id="8Tl-Sz-SeR"/>
@@ -161,7 +163,7 @@
                             <constraint firstItem="NfP-Tj-MYc" firstAttribute="top" secondItem="Rtc-28-FIM" secondAttribute="top" constant="100" id="Mbu-XF-1Qc"/>
                             <constraint firstAttribute="trailing" secondItem="NfP-Tj-MYc" secondAttribute="trailing" id="N0h-vS-Fc4"/>
                             <constraint firstItem="dH7-hc-sbG" firstAttribute="leading" secondItem="Rtc-28-FIM" secondAttribute="leading" id="Pqp-Yz-sCT"/>
-                            <constraint firstItem="dH7-hc-sbG" firstAttribute="top" secondItem="Rtc-28-FIM" secondAttribute="top" id="SID-l6-EgU"/>
+                            <constraint firstItem="dH7-hc-sbG" firstAttribute="top" secondItem="Rtc-28-FIM" secondAttribute="top" constant="20" id="SID-l6-EgU"/>
                             <constraint firstItem="lmN-23-PQU" firstAttribute="centerX" secondItem="Rtc-28-FIM" secondAttribute="centerX" id="h7a-3b-aZ1"/>
                             <constraint firstAttribute="trailing" secondItem="0Xo-V6-ALZ" secondAttribute="trailing" id="kQd-ka-yXY"/>
                             <constraint firstItem="0Xo-V6-ALZ" firstAttribute="top" secondItem="Rtc-28-FIM" secondAttribute="top" id="lPE-uo-ltQ"/>
@@ -171,6 +173,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backImage" destination="dH7-hc-sbG" id="ZSQ-qY-tHX"/>
                         <outlet property="chat" destination="iR8-CG-aik" id="ajj-nW-g9N"/>
                         <outlet property="chatview" destination="KgX-kP-Q8m" id="k2X-rw-Ruz"/>
                         <outlet property="innerView" destination="bIo-qz-dNv" id="jEl-lW-hL4"/>
